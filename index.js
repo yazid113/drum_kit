@@ -4,6 +4,7 @@ buttons.addEventListener('click', handleClick);
 function handleClick(e){
   if (e.target.classList.contains('drum')) {
       makeSound(e.target.innerText)
+      keyAnimation(e.target.innerText)
     }
   }
  
@@ -12,6 +13,7 @@ function handleClick(e){
 document.addEventListener('keydown', handleKeyDown);
 function handleKeyDown(e){
   makeSound(e.key)
+  keyAnimation(e.key)
 }
 
 
@@ -55,4 +57,13 @@ function makeSound(key){
     default:
 
   }
+}
+
+//Make key animation
+function keyAnimation(activeKey) {
+  const activeButton = document.querySelector('.'+ activeKey)
+  activeButton.classList.add("pressed")
+  setTimeout(() => {
+    activeButton.classList.remove("pressed")
+  }, 100);
 }
