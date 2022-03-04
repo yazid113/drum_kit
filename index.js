@@ -1,17 +1,21 @@
+//Detection of click event
 const buttons = document.querySelector('.set');
 buttons.addEventListener('click', handleClick);
-document.addEventListener('keydown', handleKeyDown);
-
-
 function handleClick(e){
   if (e.target.classList.contains('drum')) {
       makeSound(e.target.innerText)
     }
   }
+ 
+
+//Detection of key press
+document.addEventListener('keydown', handleKeyDown);
 function handleKeyDown(e){
   makeSound(e.key)
 }
 
+
+//Make the corrisponding sound when the right key is use
 function makeSound(key){
   switch (key) {
     case 'w':
